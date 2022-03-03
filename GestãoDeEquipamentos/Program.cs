@@ -34,6 +34,7 @@ namespace GestãoDeEquipamentos
         
             menu:
             //Menu
+           
             Console.WriteLine("Estamos aqui para te ajudar com o inventário!!");
             Console.WriteLine("Para registrar um equipamento digite 1!!");
             Console.WriteLine("Para abrir a lista de equipamentos registrados digite 2!!!");
@@ -60,30 +61,43 @@ namespace GestãoDeEquipamentos
                     Console.WriteLine("Digite o Nome do equipamento que deseja registrar");
                     string nome = Console.ReadLine();
                     nomedoequipamento[i] = nome;
+                    if (nome.Length < 6)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("NOME MUITO PEQUENO, NO MINIMO 6 DIGITOS!!");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        Console.Clear();
+                        goto registro;
 
-                    Console.WriteLine("Agora digite o preço de aquisição do equipamento!!");
-                    string qntd = Console.ReadLine();
-                    quantidade1[i] = qntd;
+                    }
+                    else 
+                        {
+                        Console.WriteLine("Agora digite o preço de aquisição do equipamento!!");
+                        string qntd = Console.ReadLine();
+                        quantidade1[i] = qntd;
 
-                    Console.WriteLine("Agora digite o numero de serie nesse formato:[1234-5]");
-                    string serie = Console.ReadLine();
-                    serie1[i] = serie;
+                        Console.WriteLine("Agora digite o numero de serie nesse formato:[1234-5]");
+                        string serie = Console.ReadLine();
+                        serie1[i] = serie;
 
-                    Console.WriteLine("Agora digite a data de fabricação nesse formato: dd/mm/aaaa");
-                    string data = Console.ReadLine();
-                    data1[i] = data;
+                        Console.WriteLine("Agora digite a data de fabricação nesse formato: dd/mm/aaaa");
+                        string data = Console.ReadLine();
+                        data1[i] = data;
 
-                    Console.WriteLine("Agora digite qual o fabricante do produto!");
-                    string fabricante = Console.ReadLine();
-                    fabricante1[i] = fabricante;
+                        Console.WriteLine("Agora digite qual o fabricante do produto!");
+                        string fabricante = Console.ReadLine();
+                        fabricante1[i] = fabricante;
 
-                    Console.ForegroundColor = ConsoleColor.DarkGreen;
-                    Console.WriteLine("ITEM REGISTRADO COM SUCESO!!");
-                    Console.ResetColor();
-                    
-                    Console.ReadKey();
-                    Console.Clear();
-                }
+                        Console.ForegroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("ITEM REGISTRADO COM SUCESO!!");
+                        Console.ResetColor();
+
+                        Console.ReadKey();
+                        Console.Clear();
+                    }
+                
+                    }
 
                 Console.WriteLine("Se deseja adicionar outro produto digite '1'");
                 Console.WriteLine("Se deseja encerrar o programa digite '2'");
