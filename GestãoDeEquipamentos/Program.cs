@@ -17,6 +17,21 @@ namespace GestãoDeEquipamentos
             string[] equipamento1 = new string[1000];
             string[] datachamado1 = new string[1000];
 
+            //Agora Junior precisa registrar informações do solicitante do chamado, pois desta forma ele poderá solicitar mais  informações sobre o equipamento e também informar quando o chamado o for fechado. Desta forma, ele pediu pra  galera da Academia do Programador desenvolver esta nova funcionalidade. 
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("DIGITE SEU NOME!!!");
+            Console.WriteLine("==================");
+            string nome10 = Console.ReadLine();
+            Console.ResetColor();
+            Console.ReadKey();
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine("Esse procedimento é necessario para se precisar de mais informações sobre os pedidos nos termos quem perguntar!!!");         
+            Console.WriteLine("==================");
+            Console.ResetColor();
+        
+        
+        
             menu:
             //Menu
             Console.WriteLine("Estamos aqui para te ajudar com o inventário!!");
@@ -62,6 +77,9 @@ namespace GestãoDeEquipamentos
                     string fabricante = Console.ReadLine();
                     fabricante1[i] = fabricante;
 
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("ITEM REGISTRADO COM SUCESO!!");
+                    Console.ResetColor();
                     
                     Console.ReadKey();
                     Console.Clear();
@@ -105,8 +123,15 @@ namespace GestãoDeEquipamentos
 
                 Console.Write("A empresa que fabricou o produto é: ");
                 Console.WriteLine(fabricante1[opcaoverint]);
+
+
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("Produto registrado por:");
+                Console.WriteLine(nome10);
+                Console.ResetColor();
                 Console.ReadKey();
                 Console.Clear();
+                
                 
                 goto menu;
             }
@@ -358,6 +383,7 @@ namespace GestãoDeEquipamentos
                 Console.Clear();
                 goto menu;           
             }
+            //Sair do programa
             else if (opcao == "S")
             {
                 Console.ForegroundColor = ConsoleColor.Red;
