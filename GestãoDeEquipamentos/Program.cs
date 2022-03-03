@@ -28,6 +28,7 @@ namespace GestãoDeEquipamentos
             Console.WriteLine("Para ver os chamados digite '6'!!");
             Console.WriteLine("Para editar um chamado digite '7'!!");
             Console.WriteLine("Para excluir um chamado digite '8'!!");
+            Console.WriteLine("Para fechar o programad digite 'S'");
             string opcao = Console.ReadLine();
 
             //Requisito 1.1: Como funcionário, Junior quer ter a possibilidade de registrar equipamentos 
@@ -76,7 +77,8 @@ namespace GestãoDeEquipamentos
                 }
                 if(opcao3 == "2")
                 {
-                    Console.Clear();                   
+                    Console.Clear();
+                    Console.ReadLine();
                 }
                 if(opcao3 == "3")
                 {
@@ -139,14 +141,18 @@ namespace GestãoDeEquipamentos
                     Console.WriteLine("Digite o novo nome!");
                     string nome = Console.ReadLine();
                     nomedoequipamento[editar1] = nome;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!!!");
+                    Console.ResetColor();
                 }
                 if(opcaoeditar == "P")
                 {
                     Console.WriteLine("Digite o novo preço!");
                     string qntd = Console.ReadLine();
                     quantidade1[editar1] = qntd;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!!!");
+                    Console.ResetColor();
 
                 }
                 if(opcaoeditar == "S")
@@ -154,21 +160,27 @@ namespace GestãoDeEquipamentos
                     Console.WriteLine("Digite o novo numero de serie!");
                     string serie = Console.ReadLine();
                     serie1[editar1] = serie;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!!!");
+                    Console.ResetColor();
                 }
                 if(opcaoeditar == "D")
                 {
                     Console.WriteLine("Digite a nova data!");
                     string data = Console.ReadLine();
                     data1[editar1] = data;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!!!");
+                    Console.ResetColor();
                 }
                 if (opcaoeditar == "F") 
                 {
                     Console.WriteLine("Digite o novo fabricante!");
                     string fabricante = Console.ReadLine();
                     fabricante1[editar1] = fabricante;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!!!");
+                    Console.ResetColor();
                 }
                 Console.ReadKey();
                 Console.Clear();
@@ -280,7 +292,9 @@ namespace GestãoDeEquipamentos
                     Console.WriteLine("Digite o novo TITULO!!");
                     string titulochamado = Console.ReadLine();
                     titulochamado1[chamadoeditar1] = titulochamado;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!!!");
+                    Console.ResetColor();
 
                 }
                 else if (opcao5 == "D")
@@ -288,21 +302,27 @@ namespace GestãoDeEquipamentos
                     Console.WriteLine("Digite a nova DESCRIÇÃO!");
                     string descricao = Console.ReadLine();
                     descricao1[chamadoeditar1] = descricao;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!!!");
+                    Console.ResetColor();
                 }
                 else if (opcao5 == "E")
                 {
                     Console.WriteLine("Digite o novo equipamento!");
                     string equipamento = Console.ReadLine();
                     equipamento1[chamadoeditar1] = equipamento;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!");
+                    Console.ResetColor();
                 }
                 else if(opcao5 == "A")
                 {
                     Console.WriteLine("Digite a nova DATA DE REGISTRO!");
                     string datachamado = Console.ReadLine();
                     datachamado1[chamadoeditar1] = datachamado;
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine("ITEM EDITADO COM SUCESSO!!!");
+                    Console.ResetColor();
                 }
                 Console.ReadKey();
                 Console.Clear();
@@ -336,8 +356,16 @@ namespace GestãoDeEquipamentos
                 datachamado1[chamadoexcluir1] = "Esse chamado foi excluido";
                 Console.ReadKey();
                 Console.Clear();
-                goto menu;
-            
+                goto menu;           
+            }
+            else if (opcao == "S")
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("OBRIGADO POR USAR O PROGRAMA!");
+                Console.ResetColor();
+                Console.ReadLine();
+
+
             }
          Console.ReadLine();
         }
