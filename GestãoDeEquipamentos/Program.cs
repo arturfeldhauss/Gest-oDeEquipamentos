@@ -364,10 +364,9 @@ namespace GestãoDeEquipamentos
                 Console.WriteLine("OBRIGADO POR USAR O PROGRAMA!");
                 Console.ResetColor();
                 Console.ReadLine();
-
-
             }
-         Console.ReadLine();
+         
+            Console.ReadLine();
         }
     }
 }
