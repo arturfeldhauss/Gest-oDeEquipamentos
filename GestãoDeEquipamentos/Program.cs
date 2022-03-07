@@ -44,7 +44,8 @@ namespace GestãoDeEquipamentos
             Console.WriteLine("Para ver os chamados digite '6'!!");
             Console.WriteLine("Para editar um chamado digite '7'!!");
             Console.WriteLine("Para excluir um chamado digite '8'!!");
-            Console.WriteLine("Para fechar o programad digite 'S'");
+            Console.WriteLine("Para fechar um chamado digite '9'!!");
+            Console.WriteLine("Para fechar o programa digite 'S'");
             string opcao = Console.ReadLine();
 
             //Requisito 1.1: Como funcionário, Junior quer ter a possibilidade de registrar equipamentos 
@@ -54,7 +55,7 @@ namespace GestãoDeEquipamentos
                 Console.WriteLine("Digite quantos equipamentos quer registrar!!");
                 string quantidaderegisto = Console.ReadLine();
                 int quantidaderegistro1 = Convert.ToInt32(quantidaderegisto);
-
+                nome:
                 for (int i = 0; i < quantidaderegistro1; i++)
                 {
                     Console.WriteLine("Agora as informações do equipamento numero{0}"  ,  i );
@@ -68,36 +69,62 @@ namespace GestãoDeEquipamentos
                         Console.ResetColor();
                         Console.ReadKey();
                         Console.Clear();
-                        goto registro;
+                        goto nome;
 
                     }
                     else 
                         {
+                        preco:
                         Console.WriteLine("Agora digite o preço de aquisição do equipamento!!");
                         string qntd = Console.ReadLine();
                         quantidade1[i] = qntd;
+                        int qntdint = Convert.ToInt32(qntd);
+                        if (qntdint <= 0)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("O preço não pode ser menor ou iguak a zero!!!");
+                            Console.ResetColor();
+                            Console.ReadKey();
+                            Console.Clear();
+                            goto preco;
+                        }
+                        else
+                        {
+                            serie:
+                            Console.WriteLine("Agora digite o numero de serie nesse formato:[1234-5]");
+                            string serie = Console.ReadLine();
+                            serie1[i] = serie;
+                            if (serie.Length <= 0)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                Console.WriteLine("Digite um numero de sério valido!!");
+                                Console.ResetColor();
+                                Console.ReadKey();
+                                Console.Clear();
+                                goto serie;
 
-                        Console.WriteLine("Agora digite o numero de serie nesse formato:[1234-5]");
-                        string serie = Console.ReadLine();
-                        serie1[i] = serie;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Agora digite a data de fabricação nesse formato: dd/mm/aaaa");
+                                string data = Console.ReadLine();
+                                data1[i] = data;
 
-                        Console.WriteLine("Agora digite a data de fabricação nesse formato: dd/mm/aaaa");
-                        string data = Console.ReadLine();
-                        data1[i] = data;
+                                Console.WriteLine("Agora digite qual o fabricante do produto!");
+                                string fabricante = Console.ReadLine();
+                                fabricante1[i] = fabricante;
 
-                        Console.WriteLine("Agora digite qual o fabricante do produto!");
-                        string fabricante = Console.ReadLine();
-                        fabricante1[i] = fabricante;
+                                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                                Console.WriteLine("ITEM REGISTRADO COM SUCESO!!");
+                                Console.ResetColor();
 
-                        Console.ForegroundColor = ConsoleColor.DarkGreen;
-                        Console.WriteLine("ITEM REGISTRADO COM SUCESO!!");
-                        Console.ResetColor();
-
-                        Console.ReadKey();
-                        Console.Clear();
+                                Console.ReadKey();
+                                Console.Clear();
+                            }
+                        }
                     }
                 
-                    }
+                }
 
                 Console.WriteLine("Se deseja adicionar outro produto digite '1'");
                 Console.WriteLine("Se deseja encerrar o programa digite '2'");
@@ -396,6 +423,36 @@ namespace GestãoDeEquipamentos
                 Console.ReadKey();
                 Console.Clear();
                 goto menu;           
+            }
+            //chamado pode ser fechado se problema resolvido
+            if(opcao == "9")
+            {
+                Console.WriteLine("O chamado foi resolvido?");
+                string opcaochamado = Console.ReadLine();
+                if(opcaochamado == "y")
+                {
+                    Console.WriteLine("Digite o numero do chamado que deseja excluir");
+                    string fecharchamado = Console.ReadLine();
+                    int fecharchamadoint = Convert.ToInt32(fecharchamado);
+                    titulochamado1[fecharchamadoint] = "Esse chamado foi resolvido";
+                    descricao1[fecharchamadoint] = "Esse chamado foi resolvido";
+                    equipamento1[fecharchamadoint] = "Esse chamado foi resolvido";
+                    datachamado1[fecharchamadoint] = "Esse chamado foi resolvido";
+                    goto menu;
+                }
+                if(opcaochamado == "n")
+                {
+                    Console.WriteLine("Entao nao temos por que fechar o chamado");
+                    Console.ForegroundColor = ConsoleColor.DarkRed;
+                    Console.WriteLine("Se ele foi registrado errado va em excluir e não em fechar o chamado!!");
+                    Console.ResetColor();
+                    Console.ReadKey();
+                    Console.Clear();
+                    goto menu;
+                }
+
+
+
             }
             //Sair do programa
             else if (opcao == "S")
