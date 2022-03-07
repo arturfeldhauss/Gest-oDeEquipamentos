@@ -428,6 +428,7 @@ namespace GestãoDeEquipamentos
             if(opcao == "9")
             {
                 Console.WriteLine("O chamado foi resolvido?");
+                Console.WriteLine("Se sim digite 'y' se nao digite 'n'!");
                 string opcaochamado = Console.ReadLine();
                 if(opcaochamado == "y")
                 {
@@ -438,6 +439,11 @@ namespace GestãoDeEquipamentos
                     descricao1[fecharchamadoint] = "Esse chamado foi resolvido";
                     equipamento1[fecharchamadoint] = "Esse chamado foi resolvido";
                     datachamado1[fecharchamadoint] = "Esse chamado foi resolvido";
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("Chamado resolvido e fechado com sucesso!!");
+                    Console.ResetColor();
+                    Console.ReadKey();
+                    Console.Clear();
                     goto menu;
                 }
                 if(opcaochamado == "n")
